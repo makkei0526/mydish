@@ -3,6 +3,6 @@ class DishesController < ApplicationController
   end
 
   def new
-    
+    @dish = Dish.new
   end
 end
