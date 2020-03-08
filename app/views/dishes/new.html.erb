@@ -1,7 +1,7 @@
 <div class="d-flex align-items-center">
   <h1>料理作成</h1>
   <div class="ml-auto dishes__linkBox">
-    <a href="/dishes" class="btn btn-outline-dark">料理一覧</a>
+    <%= link_to '料理一覧', dishes_path, class: 'btn btn-outline-dark'  %>
   </div>
 </div>
 <%= form_for @dish do |f| %>
