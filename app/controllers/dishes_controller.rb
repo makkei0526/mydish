@@ -2,7 +2,7 @@ class DishesController < ApplicationController
   before_action :set_target_dish, only: %i[show edit update destroy]
 
   def index
-    @dishes = Dish.all
+    @dishes = Dish.page(params[:page])
   end
 
   def new
