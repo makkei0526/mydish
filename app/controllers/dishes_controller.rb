@@ -11,6 +11,10 @@ class DishesController < ApplicationController
     Dish.create(dish_params)
   end
 
+  def show
+    @dish = Dish.find(params[:id])
+  end
+
   private
 
   def dish_params
