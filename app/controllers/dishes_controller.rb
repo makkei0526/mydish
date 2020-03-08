@@ -1,5 +1,6 @@
 class DishesController < ApplicationController
   def index
+    @dishes = Dish.all
   end
 
   def new
@@ -7,7 +8,7 @@ class DishesController < ApplicationController
   end
 
   def create
-    dish.create(dish_params)
+    Dish.create(dish_params)
   end
 
   private
@@ -15,5 +16,5 @@ class DishesController < ApplicationController
   def dish_params
     params.require(:dish).permit(:name, :title, :body)
   end
-  
+
 end
