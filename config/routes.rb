@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   # root 'dishes#index'
   get 'dishes', to: 'dishes#index'
   get 'dishes/new', to: 'dishes#new'
+  post 'dishes', to: 'dishes#create'
+
 end
