@@ -1,4 +1,6 @@
 class DishesController < ApplicationController
+  before_action :set_target_dish, only: %i[show edit update destroy]
+
   def index
     @dishes = Dish.all
   end
@@ -13,26 +15,20 @@ class DishesController < ApplicationController
   end
 
   def show
-    @dish = Dish.find(params[:id])
   end
 
   def edit
-    @dish = Dish.find(params[:id])
   end
 
   def update
-    dish = Dish.find(params[:id])
-    dish.update(dish_params)
-    redirect_to dish
+    @dish.update(dish_params)
+    redirect_to @dish
   end
 
   def destroy
-    dish = Dish.find(params[:id])
-    dish.delete
-
+    @dish.delete
     redirect_to dishes_path
   end
-
 
   private
 
@@ -40,4 +36,7 @@ class DishesController < ApplicationController
     params.require(:dish).permit(:name, :title, :body)
   end
 
+  def set_target_dish
+    @dish = Dish.find(params[:id])
+  end
 end
