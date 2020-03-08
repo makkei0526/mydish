@@ -8,12 +8,31 @@ class DishesController < ApplicationController
   end
 
   def create
-    Dish.create(dish_params)
+    dish = Dish.create(dish_params)
+    redirect_to dish
   end
 
   def show
     @dish = Dish.find(params[:id])
   end
+
+  def edit
+    @dish = Dish.find(params[:id])
+  end
+
+  def update
+    dish = Dish.find(params[:id])
+    dish.update(dish_params)
+    redirect_to dish
+  end
+
+  def destroy
+    dish = Dish.find(params[:id])
+    dish.delete
+
+    redirect_to dishes_path
+  end
+
 
   private
 
