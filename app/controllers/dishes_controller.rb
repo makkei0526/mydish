@@ -11,6 +11,7 @@ class DishesController < ApplicationController
 
   def create
     dish = Dish.create(dish_params)
+    flash[:notice] = "「#{dish.title}」の料理を作成しました"
     redirect_to dish
   end
 
@@ -27,7 +28,7 @@ class DishesController < ApplicationController
 
   def destroy
     @dish.delete
-    redirect_to dishes_path
+    redirect_to dishes_path, flash: { notice: "「#{@dish.title}」の料理が削除されました" }
   end
 
   private
