@@ -1,4 +1,10 @@
 ja:
+  activerecord:
+    attributes:
+      dish:
+        name: 名前
+        title: タイトル
+        body: 本文
   views:
     pagination:
       first: '最初'

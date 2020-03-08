@@ -10,9 +10,16 @@ class DishesController < ApplicationController
   end
 
   def create
-    dish = Dish.create(dish_params)
-    flash[:notice] = "「#{dish.title}」の料理を作成しました"
-    redirect_to dish
+    dish = Dish.new(dish_params)
+    if dish.save
+      flash[:notice] = "「#{dish.title}」の料理を作成しました"
+      redirect_to dish
+    else
+      redirect_to new_dish_path, flash: {
+        dish: dish,
+        error_messages: dish.errors.full_messages
+      }
+    end
   end
 
   def show
