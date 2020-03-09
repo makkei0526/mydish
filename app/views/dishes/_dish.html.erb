@@ -9,5 +9,8 @@
   <div class="card-body">
     <p class="card-text"><%= simple_format(dish.body) %></p>
     <p class="text-right font-weight-bold mr-10"><%= dish.name %></p>
+  <% if dish.image.attached? %>
+  <%= image_tag dish.image, class: 'img-fluid' %>
+  <% end %>
   </div>
 </div>

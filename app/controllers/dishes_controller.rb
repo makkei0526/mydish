@@ -49,7 +49,7 @@ class DishesController < ApplicationController
   private
 
   def dish_params
-    params.require(:dish).permit(:name, :title, :body, tag_ids: [])
+    params.require(:dish).permit(:name, :title, :body, :image, tag_ids: [])
   end
 
   def set_target_dish
