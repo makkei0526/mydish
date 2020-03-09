@@ -30,8 +30,14 @@ class DishesController < ApplicationController
   end
 
   def update
-    @dish.update(dish_params)
-    redirect_to @dish
+    if @dish.update(dish_params)
+      redirect_to @dish
+    else
+      redirect_to edit_dish_path, flash: {
+        dish: @dish,
+        error_messages: @dish.errors.full_messages
+      }
+    end
   end
 
   def destroy
