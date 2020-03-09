@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_09_011215) do
+ActiveRecord::Schema.define(version: 2020_03_09_031650) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "dish_id"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2020_03_09_011215) do
     t.index ["dish_id"], name: "index_comments_on_dish_id"
   end
 
+  create_table "dish_tag_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "dish_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dish_id"], name: "index_dish_tag_relations_on_dish_id"
+    t.index ["tag_id"], name: "index_dish_tag_relations_on_tag_id"
+  end
+
   create_table "dishes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "title"
@@ -29,5 +38,13 @@ ActiveRecord::Schema.define(version: 2020_03_09_011215) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "comments", "dishes"
+  add_foreign_key "dish_tag_relations", "dishes"
+  add_foreign_key "dish_tag_relations", "tags"
 end
