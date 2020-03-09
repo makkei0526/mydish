@@ -41,7 +41,7 @@ class DishesController < ApplicationController
   end
 
   def destroy
-    @dish.delete
+    @dish.destroy
     redirect_to dishes_path, flash: { notice: "「#{@dish.title}」の料理が削除されました" }
   end
 
