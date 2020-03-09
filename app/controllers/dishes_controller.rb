@@ -2,7 +2,8 @@ class DishesController < ApplicationController
   before_action :set_target_dish, only: %i[show edit update destroy]
 
   def index
-    @dishes = Dish.page(params[:page])
+    @dishes = params[:tag_id].present? ? Tag.find(params[:tag_id]).dishes : Dish.all
+    @dishes = @dishes.page(params[:page])
   end
 
   def new
