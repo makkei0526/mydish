@@ -23,7 +23,7 @@ class DishesController < ApplicationController
   end
 
   def show
-    @comment = @dish.comments.new
+    @comment = Comment.new(dish_id: @dish.id)
   end
 
   def edit
