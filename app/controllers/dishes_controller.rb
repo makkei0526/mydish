@@ -23,6 +23,7 @@ class DishesController < ApplicationController
   end
 
   def show
+    @comment = @dish.comments.new
   end
 
   def edit
