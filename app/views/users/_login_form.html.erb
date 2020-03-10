@@ -1,21 +1,41 @@
-<div class="jumbotron">
+<%# <div class="jumbotron">
   <h1 class="display-4" >Hello, world!</h1>
   <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
   <hr class="my-4">
   <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
   <a class="btn btn-primary btn-lg" href="#" role="button">新規登録をする</a>
-</div>
+</div> %>
 
-<h1>ログイン</h1>
 
-<%= form_with scope: :session, url: login_path do |f| %>
-  <div class="form-group">
-    <%= f.label :name, 'ユーザー名' %>
-    <%= f.text_field :name, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :password, 'パスワード' %>
-    <%= f.password_field :password, class: 'form-control' %>
-  </div>
-  <%= f.submit 'ログイン', class: 'btn btn-primary' %>
-<% end %>
+
+  <form class="form-signin ">
+    <div class="text-center mb-4">
+      <%# <img class="mb-4" src="../images/bootstrap-solid.svg" alt="" width="72" height="72"> %>
+      <h1 class="h3 mb-3 font-weight-normal">ログインして料理を共有しよう</h1>
+      <%# <p>フローティングラベル付きフォームコントロールを <code>:placeholder-shown</code> 疑似要素を介して構築。<a href="https://caniuse.com/#feat=css-placeholder-shown">最新のChrome、Safari、Firefoxで動作。</a></p> %>
+    </div>
+
+    <div class="form-label-group">
+      <input type="email" id="inputEmail" class="form-control" placeholder="Emailアドレス" required autofocus>
+      <label for="inputEmail">Emailアドレス</label>
+    </div>
+
+    <div class="form-label-group">
+      <input type="password" id="inputPassword" class="form-control" placeholder="パスワード" required>
+      <label for="inputPassword">パスワード</label>
+    </div>
+
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> 記憶する
+      </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">サインイン</button>
+    <p class="mt-5 mb-3 text-muted text-center">&copy; 2020</p>
+  </form>
+
+
+
+
+
+
