@@ -3,7 +3,7 @@ class DishesController < ApplicationController
 
   def index
     @dishes = params[:tag_id].present? ? Tag.find(params[:tag_id]).dishes : Dish.all
-    @dishes = @dishes.page(params[:page])
+    @dishes = @dishes.page(params[:page]).per(9)
   end
 
   def new

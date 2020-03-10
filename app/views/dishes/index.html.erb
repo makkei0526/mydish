@@ -19,31 +19,24 @@
   <div class="alert alert-danger"><%= flash[:notice] %></div>
 <% end %>
 
-<table class="table table-hover dishes__table">
-  <thead class="thead-dark">
-    <tr>
-      <th>ID</th>
-      <th>タイトル</th>
-      <th>料理名</th>
-      <th>作成日時</th>
-      <th>更新日時</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
+<div class="container">
+  <div class="row">
     <% @dishes.each do |dish| %>
-      <tr>
-        <td><%= dish.id %></td>
-        <td><%= dish.title %></td>
-        <td><%= dish.name %></td>
-        <td><%= dish.created_at.to_s(:datetime_jp) %></td>
-        <td><%= dish.updated_at.to_s(:datetime_jp) %></td>
-        <td><%= link_to '詳細', dish, class: 'btn btn-outline-dark'  %></td>
-        <td><%= link_to '削除', dish, class: 'btn btn-outline-dark', method: :delete %></td>
-      </tr>
+    <div class="col-lg-4">
+      <div class="card border-secondary mb-2 " style="width: 18rem;">
+        <%= image_tag dish.image, class: 'img-fluid' if dish.image.attached? %>
+        <%# <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect fill="#868e96" width="100%" height="100%"/></svg> %>
+        <div class="card-body">
+          <h5 class="card-title"><%= dish.name %></h5>
+          <p class="card-text"><%= dish.title %></p>
+          <%= link_to '詳細', dish, class: 'btn btn-outline-warning'%>
+          <%= link_to '削除', dish, class: 'btn btn-outline-danger', method: :delete %>
+        </div>
+      </div>
+    </div>
     <% end %>
-  </tbody>
-</table>
-
+  </div>
+</div>
 <%= paginate @dishes %>
+
+
