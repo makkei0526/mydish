@@ -1,5 +1,6 @@
 <div class="d-flex align-items-center">
-  <h1>料理一覧</h1>
+  <h1>みんなの料理</h1>
+  <%= page_entries_info @dishes %>
   <div class="ml-auto dishes__linkBox">
     <%= form_with url: dishes_path, method: :get, class: 'dishes__searchForm' do %>
       <%= select_tag :tag_id,
@@ -11,7 +12,7 @@
                       }
       %>
     <% end %>
-    <%= link_to '新規作成', new_dish_path, class: 'btn btn-outline-dark'  %>
+    <%= link_to '新しい料理を作る', new_dish_path, class: 'btn btn-warning btn-lg' %>
   </div>
 </div>
 
@@ -20,23 +21,27 @@
 <% end %>
 
 <div class="container">
-  <div class="row">
-    <% @dishes.each do |dish| %>
-    <div class="col-lg-4">
-      <div class="card border-secondary mb-2 " style="width: 18rem;">
+  <% @dishes.each do |dish| %>
+  <div class="card mb-3" style="max-width: 1050px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
         <%= image_tag dish.image, class: 'img-fluid' if dish.image.attached? %>
-        <%# <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect fill="#868e96" width="100%" height="100%"/></svg> %>
+        <%# <svg class="bd-placeholder-img" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image"><title>Placeholder</title><rect fill="#868e96" width="100%" height="100%"/><text fill="#dee2e6" dy=".3em" x="50%" y="50%">Image</text></svg> %>
+      </div>
+      <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title"><%= dish.name %></h5>
           <p class="card-text"><%= dish.title %></p>
+          <%# <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> %>
           <%= link_to '詳細', dish, class: 'btn btn-outline-warning'%>
           <%= link_to '削除', dish, class: 'btn btn-outline-danger', method: :delete %>
         </div>
       </div>
     </div>
-    <% end %>
   </div>
+  <% end %>
 </div>
+
 <%= paginate @dishes %>
 
 
