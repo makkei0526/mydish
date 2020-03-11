@@ -5,6 +5,11 @@ class DishesController < ApplicationController
     @q = params[:tag_id].present? ? Tag.find(params[:tag_id]).dishes : Dish.all
     @search = @q.ransack(params[:q])
     @dishes = @search.result(distinct: true).page(params[:page]).per(9)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @dishes.generate_csv, filename: "dishes-#{Time.zone.now.strftime('%Y%m%d%S')}.csv"}
+    end
   end
 
   def new

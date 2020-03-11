@@ -1,6 +1,10 @@
 <div class="d-flex align-items-center">
   <h1>みんなの料理</h1>
-  <%= page_entries_info @dishes %>
+    <%= search_form_for @search, class: 'form-inline m-5 my-lg-0' do |f| %>
+        <%= f.search_field :name_cont, placeholder: "レシピを検索", aria_label: "Search", class: 'form-control mr-sm-2' %>
+        <%= f.submit class: 'btn btn-warning my-2 my-sm-0' %>
+    <% end %>
+    <%= link_to 'みんなのレシピをCSV形式でまとめて保存する', dishes_path(format: :csv), class: 'btn btn-danger my-5'%>
   <div class="ml-auto dishes__linkBox">
     <%= form_with url: dishes_path, method: :get, class: 'dishes__searchForm' do %>
       <%= select_tag :tag_id,
@@ -19,8 +23,8 @@
 <% if flash[:notice] %>
   <div class="alert alert-danger"><%= flash[:notice] %></div>
 <% end %>
-
 <div class="container">
+<%= page_entries_info @dishes %>
   <% @dishes.each do |dish| %>
   <div class="card mb-3" style="max-width: 1050px;">
     <div class="row no-gutters">

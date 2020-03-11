@@ -19,4 +19,19 @@ class Dish < ApplicationRecord
   validates :name, presence: true, length: { maximum: 10 }
   validates :title, presence: true, length: { maximum: 30 }
   validates :body, presence: true, length: { maximum: 1000 }
+
+
+
+  def self.csv_attributes
+    ["name", "title", "body", "created_at", "updated_at"]
+  end
+
+  def self.generate_csv
+    CSV.generate(headers: true) do |csv|
+      csv << csv_attributes
+      all.each do |dish|
+        csv << csv_attributes.map{ |attr| dish.send(attr) }
+      end
+    end
+  end
 end
