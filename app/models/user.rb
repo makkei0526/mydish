@@ -16,7 +16,7 @@
 class User < ApplicationRecord
   has_secure_password
 
-  # has_many :dishes
+  has_many :dishes
 
   validates :name,
     presence: true,

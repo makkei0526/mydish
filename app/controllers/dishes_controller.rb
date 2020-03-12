@@ -17,7 +17,6 @@ class DishesController < ApplicationController
   end
 
   def create
-
     dish = Dish.new(dish_params)
     if dish.save
       flash[:notice] = "「#{dish.title}」の料理を作成しました"
@@ -56,13 +55,12 @@ class DishesController < ApplicationController
   private
 
   def dish_params
-    params.require(:dish).permit(:name, :title, :body, :image, tag_ids: [])
+    params.require(:dish).permit(:name, :title, :body, :image, tag_ids: []).merge(user_id: current_user.id)
   end
 
   def set_target_dish
     @dish = Dish.find(params[:id])
     # @dish = current_user.dishes.find(params[:id])
-
   end
 
 end

@@ -8,13 +8,14 @@
 #  title      :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
 #
 class Dish < ApplicationRecord
   has_many :comments, dependent: :delete_all
   has_many :dish_tag_relations, dependent: :delete_all
   has_many :tags, through: :dish_tag_relations
   has_one_attached :image
-  # belongs_to :user
+  belongs_to :user
 
   validates :name, presence: true, length: { maximum: 10 }
   validates :title, presence: true, length: { maximum: 30 }
