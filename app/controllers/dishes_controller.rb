@@ -17,7 +17,7 @@ class DishesController < ApplicationController
   end
 
   def create
-      # dish = current_user.dishes.find(params[:id])
+
     dish = Dish.new(dish_params)
     if dish.save
       flash[:notice] = "「#{dish.title}」の料理を作成しました"
@@ -62,6 +62,7 @@ class DishesController < ApplicationController
   def set_target_dish
     @dish = Dish.find(params[:id])
     # @dish = current_user.dishes.find(params[:id])
+
   end
 
 end
