@@ -16,9 +16,9 @@
                       }
       %>
     <% end %>
-    <%# <% if user_signed_in? %> 
-    <%= link_to '新しい料理を作る', new_dish_path, class: 'btn btn-warning btn-lg' %>
-    <%# <% end %> 
+    <% if @current_user %>
+      <%= link_to '新しい料理を作る', new_dish_path, class: 'btn btn-warning btn-lg' %>
+    <% end %>
   </div>
 </div>
 
@@ -38,10 +38,10 @@
         <div class="card-body">
           <h5 class="card-title"><%= dish.name %></h5>
           <p class="card-text"><%= dish.title %></p>
-          <%# <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> %>
-          <%= link_to '詳細', dish, class: 'btn btn-outline-warning'%>
-          <%= link_to '削除', dish, class: 'btn btn-outline-danger', method: :delete %>
-
+          <% if @current_user %>
+            <%= link_to '詳細', dish, class: 'btn btn-outline-warning'%>
+            <%= link_to '削除', dish, class: 'btn btn-outline-danger', method: :delete %>
+          <% end %>
         </div>
       </div>
     </div>

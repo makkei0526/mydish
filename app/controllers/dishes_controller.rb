@@ -60,7 +60,6 @@ class DishesController < ApplicationController
 
   def set_target_dish
     @dish = Dish.find(params[:id])
-    # @dish = current_user.dishes.find(params[:id])
   end
 
 end
