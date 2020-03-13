@@ -1,3 +1,14 @@
 <h1>マイページ</h1>
 
-<%= @current_user.name %>
+<table class="table">
+  <tbody class="p-3">
+    <tr>
+      <th>Eメール</th>
+      <td><%= @current_user.email %></td>
+    </tr> 
+    <tr>
+      <th>ユーザー名</th>
+      <td><%= @current_user.name %></td>
+    </tr> 
+  </tbody>
+</table>
