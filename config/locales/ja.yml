@@ -5,6 +5,7 @@ ja:
         name: ユーザー名
         password: パスワード
         password_confirmation: パスワード（確認）
+        email: メールアドレス
       dish:
         name: 名前
         title: タイトル
