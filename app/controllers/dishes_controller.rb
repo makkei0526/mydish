@@ -4,7 +4,7 @@ class DishesController < ApplicationController
   def index
     @q = params[:tag_id].present? ? Tag.find(params[:tag_id]).dishes : Dish.all
     @search = @q.ransack(params[:q])
-    @dishes = @search.result(distinct: true).page(params[:page]).per(9)
+    @dishes = @search.result(distinct: true).page(params[:page]).per(7)
 
     respond_to do |format|
       format.html

@@ -17,6 +17,7 @@
       %>
     <% end %>
     <% if @current_user %>
+      <%# <h3>料理を登録、レシピを見るにはユーザー登録が必要です</h3> %>
       <%= link_to '新しい料理を作る', new_dish_path, class: 'btn btn-warning btn-lg' %>
     <% end %>
   </div>

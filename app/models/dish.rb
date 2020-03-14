@@ -17,8 +17,8 @@ class Dish < ApplicationRecord
   has_one_attached :image
   belongs_to :user
 
-  validates :name, presence: true, length: { maximum: 10 }
-  validates :title, presence: true, length: { maximum: 30 }
+  validates :name, presence: true, length: { maximum: 30 }
+  validates :title, presence: true, length: { maximum: 500 }
   validates :body, presence: true, length: { maximum: 1000 }
 
 
