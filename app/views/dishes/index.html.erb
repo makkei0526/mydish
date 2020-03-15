@@ -1,16 +1,55 @@
-<div class="d-flex align-items-center">
+
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="text-white">Mydishへようこそ</h1>
+    <p class="text-white">厳選した料理レシピアプリ</p>
+    <hr class="my-4">
+    <%# <p class="text-white">ユーザー登録をして自分だけのレシピの引き出しを作ろう</p> %>
+    <%# <p class="text-white">料理レシピの登録、詳細が見れるぞ</p> %>
+    <br><br><br>
+  </div>  
+</div>
+<div class="features">
+  <div class="container">
+    <div class="section-title text-center">
+      <h1 class="title"> Mydishとは</h1>
+      <br>
+      <h4 class="title"> 今日料理は何にしようかよく迷っている方に向けた、料理レシピ記録、共有サービスです。</h4>
+      <br>
+    </div> 
+    <div class="row">
+      <div class="col-md-4 col-sm-6 feature text-center">
+
+        <h3 class="feature-title"> リアルな口コミ</h3>
+        <p> ✔	実際にリアルな口コミで<br>もう料理では失敗させない</p>
+      </div>  
+      <div class="col-md-4 col-sm-6 feature text-center">
+
+        <h3 class="feature-title"> 自分だけのMYリスト</h3>
+        <p> ✔	美味しかったあの料理を<br>レシピを忘れたなんてことはない</p>
+      </div>  
+      <div class="col-md-4 col-sm-6 feature text-center">
+
+        <h3 class="feature-title"> 料理をいつでも検索</h3>
+        <p> ✔	ジャンルごとや<br>フリーワードレシピを絞り込み</p>
+      </div>  
+    </div>  
+  </div>  
+</div>  
+<div class="section-title text-center">
   <h1>みんなの料理</h1>
+    <%= link_to 'みんなのレシピをCSV形式でまとめて保存する', dishes_path(format: :csv), class: 'btn btn-danger btn-lg' %>
     <%= search_form_for @search, class: 'form-inline m-5 my-lg-0' do |f| %>
-        <%= f.search_field :name_cont, placeholder: "レシピを検索", aria_label: "Search", class: 'form-control mr-sm-2' %>
-        <%= f.submit class: 'btn btn-warning my-2 my-sm-0' %>
+      <%= f.search_field :name_cont, placeholder: "レシピを検索", aria_label: "Search", class: 'form-control mr-sm-2' %>
+      <%= f.submit class: 'btn btn-warning my-2 my-sm-0' %>
     <% end %>
-    <%= link_to 'みんなのレシピをCSV形式でまとめて保存する', dishes_path(format: :csv), class: 'btn btn-danger my-5'%>
   <div class="ml-auto dishes__linkBox">
     <%= form_with url: dishes_path, method: :get, class: 'dishes__searchForm' do %>
       <%= select_tag :tag_id,
                       options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
                       {
-                        prompt: 'タグで絞り込み',
+                        prompt: 'カテゴリ',
                         class: 'form-control dishes__select',
                         onchange: 'submit(this.form);'
                       }
@@ -39,8 +78,8 @@
         <div class="card-body">
           <h5 class="card-title"><%= dish.name %></h5>
           <p class="card-text"><%= dish.title %></p>
-          <% if @current_user %>
             <%= link_to '詳細', dish, class: 'btn btn-outline-warning'%>
+          <% if @current_user %>
             <%= link_to '削除', dish, class: 'btn btn-outline-danger', method: :delete %>
           <% end %>
         </div>

@@ -1,25 +1,6 @@
-<% if @current_user %>
 
-<div class="card"> 
-  <img class="card-img alt=("Responsive image") src="/assets/banner.jpg">
-    <div class="card-img-overlay">
-      <h1 class="text-white text-center mt-5">みんなのお気に入りの料理を共有しよう</h1>
-      <%= link_to '今すぐ料理を探しにいく', dishes_path, class: 'btn btn-warning btn-lg mx-auto d-block'%>
-    </div> 
-</div>
 
-<% else %>
-  <div class="jumbotron">
-    <h1 class="text-white">Mydishへようこそ</h1>
-    <p class="text-white">日々の作った料理を記録、共有できるレシピアプリ</p>
-    <hr class="my-4">
-    <p class="text-white">ユーザー登録をして自分だけのレシピの引き出しを作ろう</p>
-    <p class="text-white">料理レシピの登録、詳細が見れるぞ</p>
-    <%= link_to '新規登録', new_user_path, class: "btn btn-primary btn-lg" %>
-    <%= link_to 'どんな料理があるのか見てみる', dishes_path, class: "btn btn-danger btn-lg" %>
-  </div>
 
-<h2>ユーザー登録済みの方はコチラ</h2>
   <%= form_with scope: :session, url: login_path do |f| %>
     <div class="form-group">
       <%= f.label :email, 'メールアドレス' %>
@@ -31,7 +12,6 @@
     </div>
     <%= f.submit 'ログイン', class: 'btn btn-primary' %>
   <% end %> 
-<% end %>
 
 
 

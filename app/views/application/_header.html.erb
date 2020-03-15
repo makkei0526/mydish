@@ -6,26 +6,28 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <%= header_link_item('ホーム', root_path) %>
-      </li>
+    <% if @current_user %>
       <li class="nav-item">
         <%= header_link_item('料理一覧', dishes_path) %>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          ユーザー
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <% if @current_user %>
-            <%= link_to 'マイページ', mypage_path, class: 'dropdown-item' %>
-            <%= link_to 'ログアウト', logout_path, method: :delete, class: 'dropdown-item' %>
-          <% else %>
-            <%= link_to '登録', new_user_path, class: 'dropdown-item' %>
-            <%= link_to 'ログイン', root_path, class: 'dropdown-item' %>
-          <% end %>
-        </div>
+      <li class="nav-item">
+        <%= header_link_item('マイページ', mypage_path) %>
       </li>
+      <li class="nav-item">
+        <%= link_to 'ログアウト', logout_path, method: :delete, class: 'btn btn-outline-warning' %>
+      </li>
+    <% else %>
+      <li class="nav-item">
+        <%= header_link_item('登録', new_user_path) %>
+      </li>
+      <li class="nav-item">
+        <%= header_link_item('ログイン', home_path) %>
+      </li>
+      <li class="nav-item">
+        <%= header_link_item('ホーム', root_path) %>
+      </li>
+    <% end %>
     </ul>
+    
   </div>
 </nav>
