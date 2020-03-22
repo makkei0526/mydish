@@ -45,6 +45,7 @@ gem 'slim-rails'
 gem 'html2slim'
 gem 'ransack'
 gem 'pry-byebug'
+gem 'rubocop', require: false
 
 
 group :development, :test do
