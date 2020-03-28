@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# サービス概要
+食生活が乱れがちな、健康を意識してきた方へ、健康レシピに特化した料理レシピ共有サービスです
 
-Things you may want to cover:
+# 登場人物
+* エンドユーザー
+    * 食生活が乱れてきていて健康や節約のために自炊をしようと決意したが何をどう作ればいいのかわからない方
+* 管理者
+    * ユーザーを管理する人
 
-* Ruby version
+<!-- # ユーザーが抱える課題(ペルソナ）
+仕事が多忙で、外食中心の食生活が習慣になってしまった。 「外食ばかりで最近太ってきたし、このままだとまずい」と思い食生活の制限を始める。 
+調べてみると、食生活は（糖質、脂質、たんぱく質）のバランスの良い食事を心がけると良いと知る。 
+とはいっても、自炊する時間はないし、手軽に（p、f、cバランス）が良い食品を取る方法が知りたい。
+ でも、コンビニに毎に売っている物が違うし、どのくらいバランスの良い物なのか気になる。
+コンビニ毎のヘルシーな食品の一覧、レビューが知りたい。
 
-* System dependencies
+# 解決方法
+バランスの良いヘルシーな食品一覧をコンビニ毎に確認出来ていれば、悩むことがなくなり便利。 
+各コンビニ(ファミリーマート、セブンイレブン、ローソン)で購入できる食品をレビューしてもらい、調べる手間を省く。
 
-* Configuration
+# プロダクト
+ヘルシーな食品をコンビニ別で一覧を把握できる、Webアプリケーション
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# マーケット
+健康が気になる忙しい社会人 -->

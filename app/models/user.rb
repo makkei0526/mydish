@@ -20,15 +20,15 @@ class User < ApplicationRecord
   has_many :dishes
 
   validates :name,
-    presence: true,
-    uniqueness: true,
-    length: { maximum: 16 }
-    # format: {
-    #   with: /\A[a-z0-9]+\z/,
-    #   message: 'は小文字英数字で入力してください'
-    # }
-  validates :password,
-    length: { minimum: 8 }
+  presence: true,
+  uniqueness: true,
+  length: { maximum: 16 }
+  # format: {
+  #   with: /\A[a-z0-9]+\z/,
+  #   message: 'は小文字英数字で入力してください'
+  # }
+validates :password,
+  length: { minimum: 8 }
   
   validates :email,
   presence: true,
