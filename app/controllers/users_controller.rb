@@ -18,6 +18,8 @@ class UsersController < ApplicationController
   end
 
   def me
+    # @users = Dish.all
+    @dishes = Dish.all
     # @users = User.includes(:dishes)
     # .order("created_at DESC").page(params[:page]).per(5)
   end
